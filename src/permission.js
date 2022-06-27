@@ -73,11 +73,13 @@ import 'nprogress/nprogress.css' // progress bar style
 //     如果直接放行 next()
 //     如果要跳到其它页 next(其它页)
 const whiteList = ['/login', '/404']
-router.beforeEach((to, from, next) => {
+router.beforeEach(async(to, from, next) => {
   NProgress.start()
   // 取出 token
   const token = store.state.user.token
   if (token) {
+    // 用户登录时调用 vuex 里的 actions
+    await store.dispatch('user/getUserInfo')
     // 有 token 代表已经登录了
     // 如果你已经登录了 并且还要去登录页,那我就不让你去,让你强制去首页
     if (to.path === '/login') {
