@@ -86,6 +86,10 @@ router.beforeEach(async(to, from, next) => {
       next('/')
       NProgress.done()
     } else {
+      // 判断 如果没有 userId 那就去获取
+      if (!store.getters.userId) {
+        await store.dispatch('user/getUserInfo')
+      }
       next()
     }
   } else {

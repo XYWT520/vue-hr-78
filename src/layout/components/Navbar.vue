@@ -12,8 +12,9 @@
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
           <!-- <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar"> -->
-          <img src="@/assets/common/猫娘.jpg" class="user-avatar">
-          <span class="name">管理员</span>
+          <!-- <img src="@/assets/common/猫娘.jpg" class="user-avatar"> -->
+          <img :src="$store.getters.staffPhoto" class="user-avatar">
+          <span class="name">{{ $store.getters.username }}</span>
           <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
@@ -55,9 +56,24 @@ export default {
     toggleSideBar() {
       this.$store.dispatch('app/toggleSideBar')
     },
+
+    // 退出登录
     async logout() {
-      await this.$store.dispatch('user/logout')
-      this.$router.push(`/login?redirect=${this.$route.fullPath}`)
+      const result = await this.$confirm('确定退出登录吗?', '提示', { type: 'warning' }).catch(e => e)
+      // 判断用户点击的是不是确定
+      if (result !== 'confirm') return
+      try {
+        this.$store.dispatch('user/loginOut')
+        // console.log(this.$route)
+        // 获取当前页面的地址 this.$route.fullpath
+        // this.$route.path 只有路劲的信息
+        // this.$route.fullpath 有路劲信息和查询参数信息
+        // console.log(this.$route.fullPath)
+        this.$router.push('/login?return_url=' + this.$route.fullPath)
+        this.$message.success('已退出登录')
+      } catch (e) {
+        console.log(e)
+      }
     }
   }
 }

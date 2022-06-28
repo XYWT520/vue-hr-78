@@ -111,8 +111,10 @@ export default {
       try {
         // 在组件中调用带命名空间的action
         await this.$store.dispatch('user/userLogin', this.loginForm)
+        this.$message.success('登录成功')
+        // console.log(this.$route)
+        this.$router.push(this.$route.query.return_url || '/')
         // 跳转到首页
-        this.$router.push('/')
       } catch (e) {
         console.log(e)
       }

@@ -16,3 +16,15 @@ export function getUserProfile() {
     method: 'post'
   })
 }
+
+// 获取用户个人头像
+/**
+ * @description: 获取用户头像
+ * @param {*} id 用户id
+ * @return {*}
+ */
+export function getUserDetailById(id) {
+  return request({
+    url: `/sys/user/${id}`
+  })
+}

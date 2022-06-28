@@ -1,4 +1,4 @@
-import { login, getUserProfile } from '@/api/user'
+import { login, getUserProfile, getUserDetailById } from '@/api/user'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 export default {
   namespaced: true,
@@ -31,6 +31,7 @@ export default {
 
   },
   actions: {
+
     // 登录请求 在 vuex 里面的 actions 封装
     async userLogin(context, obj) {
       const res = await login(obj)
@@ -39,9 +40,20 @@ export default {
 
     // 获取用户个人信息
     async getUserInfo(context) {
+      // 获取用户个人信息
       const res1 = await getUserProfile()
-      console.log('用来获取用户信息的,', res1)
-      context.commit('setUserInfo', res1.data)
+      // console.log('用来获取用户信息的,', res1)
+      // 获取用户个人头像
+      const res2 = await getUserDetailById(res1.data.userId)
+      // console.log(res2)
+      // 将两个获取到的结果展开,合并到一起
+      context.commit('setUserInfo', { ...res1.data, ...res2.data })
+    },
+
+    // 用来退出登录的请求,删除 toekn 和 userInfo
+    loginOut(context) {
+      context.commit('removeUserInfo')
+      context.commit('removeToken')
     }
   },
   getters: {
