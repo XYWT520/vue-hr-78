@@ -7,6 +7,6 @@ export default {
     path: '', // 作为默认渲染路由
     name: 'settings',
     component: () => import('@/views/settings'),
-    meta: { title: 'settings', icon: 'settings' }
+    meta: { title: '公司设置', icon: 'dashboard' }
   }]
 }

@@ -7,6 +7,6 @@ export default {
     path: '', // 作为默认渲染路由
     name: 'approvals',
     component: () => import('@/views/approvals'),
-    meta: { title: 'approvals', icon: 'approvals' }
+    meta: { title: '审批管理', icon: 'dashboard' }
   }]
 }

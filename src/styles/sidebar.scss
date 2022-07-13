@@ -95,6 +95,20 @@
             }
           }
         }
+        .is-active{
+          background-color: $menuText !important;
+          span{
+            color: #43a7fe;
+          }
+          .svg-icon{
+            color: #43a7fe;
+            font-size: 18px;
+            vertical-align: middle;
+            .icon{
+              color:#43a7fe;
+            }
+          }
+        }
       }
 }
 

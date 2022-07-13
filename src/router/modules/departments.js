@@ -7,6 +7,6 @@ export default {
     path: '', // 作为默认渲染路由
     name: 'departments',
     component: () => import('@/views/departments'),
-    meta: { title: 'departments', icon: 'departments' }
+    meta: { title: '组织架构', icon: 'dashboard' }
   }]
 }

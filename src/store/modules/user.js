@@ -36,6 +36,7 @@ export default {
     async userLogin(context, obj) {
       const res = await login(obj)
       context.commit('setToken', res.data)
+      return res
     },
 
     // 获取用户个人信息

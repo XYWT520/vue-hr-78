@@ -7,6 +7,6 @@ export default {
     path: '', // 作为默认渲染路由
     name: 'salarys',
     component: () => import('@/views/salarys'),
-    meta: { title: 'salarys', icon: 'salarys' }
+    meta: { title: '薪资管理', icon: 'dashboard' }
   }]
 }

@@ -7,6 +7,6 @@ export default {
     path: '', // 作为默认渲染路由
     name: 'attendances',
     component: () => import('@/views/attendances'),
-    meta: { title: 'attendances', icon: 'attendances' }
+    meta: { title: '考勤', icon: 'dashboard' }
   }]
 }

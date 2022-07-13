@@ -7,6 +7,6 @@ export default {
     path: '', // 作为默认渲染路由
     name: 'social_securitys',
     component: () => import('@/views/social_securitys'),
-    meta: { title: 'social_securitys', icon: 'social_securitys' }
+    meta: { title: '社保', icon: '品牌认证' }
   }]
 }

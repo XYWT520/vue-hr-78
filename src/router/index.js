@@ -15,13 +15,13 @@ import settingRouter from './modules/settings'
 import socialRouter from './modules/social_securitys'
 // 动态路由表
 export const asyncRoutes = [
-  approvalsRouter,
   departmentsRouter,
+  settingRouter,
   employeesRouter,
   permissionRouter,
   attendancesRouter,
   salarysRouter,
-  settingRouter,
+  approvalsRouter,
   socialRouter
 ]
 
@@ -47,7 +47,7 @@ export const constantRoutes = [
       path: 'dashboard',
       name: 'Dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
+      meta: { title: '首页', icon: '品牌认证' }
     }]
   },
 

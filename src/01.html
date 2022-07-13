@@ -8,11 +8,19 @@
 </head>
 <body>
     <script>
-        const strArray = 'ni sdhi ju ';
-        let arr = [1,2,3,4,5]
-        const res = strArray.split('')
-        let arr1 = arr.join('/')
-        console.log(arr1);
+        const arr = ["b", "c","b", "c","a", "b", "c"] 
+
+        const obj = {}
+        // 你的代码 ...
+        let res = arr.reduce(function(item,index){
+            if(index in item) {
+                item[index]++
+            } else {
+                item[index] = 1
+            }
+            return item
+        },{})
+        console.log(res) // ==> {a：1， b: 3, c:  3}
     </script>
 </body>
 </html>

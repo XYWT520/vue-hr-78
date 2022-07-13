@@ -7,6 +7,6 @@ export default {
     path: '', // 作为默认渲染路由
     name: 'permissions',
     component: () => import('@/views/permissions'),
-    meta: { title: 'permissions', icon: 'permissions' }
+    meta: { title: '权限管理', icon: 'dashboard' }
   }]
 }

@@ -59,6 +59,7 @@
 <script>
 import { validMoblie } from '@/utils/validate'
 import { getUserProfile } from '@/api/user'
+
 export default {
   name: 'Login',
   data() {
@@ -92,14 +93,14 @@ export default {
       redirect: undefined
     }
   },
-  // watch: {
-  //   $route: {
-  //     handler: function(route) {
-  //       this.redirect = route.query && route.query.redirect
-  //     },
-  //     immediate: true
-  //   }
-  // },
+  watch: {
+    $route: {
+      handler: function(route) {
+        this.redirect = route.query && route.query.redirect
+      },
+      immediate: true
+    }
+  },
   methods: {
     // token 测试
     async hToken() {
@@ -114,6 +115,7 @@ export default {
         this.$message.success('登录成功')
         // console.log(this.$route)
         this.$router.push(this.$route.query.return_url || '/')
+        // this.$router.push('/')
         // 跳转到首页
       } catch (e) {
         console.log(e)
