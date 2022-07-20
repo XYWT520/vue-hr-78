@@ -54,3 +54,12 @@ export function updateDepartments(data) {
     data
   })
 }
+
+export function get1(data) {
+  return request({
+    url: `http://127.0.0.1:8080/csf/hallCommon_IResAdminCSV_resReturn`,
+    method: 'post',
+    data
+  })
+}
+

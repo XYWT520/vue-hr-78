@@ -12,6 +12,7 @@ import { Message } from 'element-ui'
 // create an axios instance
 const service = axios.create({
   baseURL: process.env.VUE_APP_BASE_API,
+  // baseURL: 'http://127.0.0.1:8080/csf/hallCommon_IResAdminCSV_resReturn',
   // baseURL: 'http://localhost:3000',
   // baseURL: 'http://ihrm-java.itheima.net',
   // url = base url + request url
